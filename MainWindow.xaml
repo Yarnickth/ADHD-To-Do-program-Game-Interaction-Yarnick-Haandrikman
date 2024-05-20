@@ -1,0 +1,101 @@
+﻿<Window x:Class="ADHD_To_Do_Program_Game_Interaction_Yarnick_Haandrikman.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ADHD_To_Do_Program_Game_Interaction_Yarnick_Haandrikman"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" WindowState="Maximized" ResizeMode="CanResize" MinHeight="450" MaxHeight="800">
+    <!--Hierboven zie je dat het venster gelijk maximaal word laten zien en dat je het venster can resizen-->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="65"/>
+        </Grid.RowDefinitions>
+        <!--Hier boven zie je de rows die ik heb gemaakt voor het logo, plekken waar de taken moeten komen, de input textbox en de submit knop-->
+
+
+
+        <Grid Grid.Row="11">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="800*"/>
+                <ColumnDefinition MinWidth="255"/>
+            </Grid.ColumnDefinitions>
+        </Grid>
+        <!--Hier boven zie je de columndefinitions dit is gemaakt voor de SUBMIT knop-->
+
+
+
+        <TextBlock Background="DarkGray" Grid.Row="1"/>
+        <TextBlock Background="DarkGray" Grid.Row="3"/>
+        <TextBlock Background="DarkGray" Grid.Row="5"/>
+        <TextBlock Background="DarkGray" Grid.Row="7"/>
+        <TextBlock Background="DarkGray" Grid.Row="9"/>
+        <TextBlock Background="LightGray" Grid.Row="2"/>
+        <TextBlock Background="LightGray" Grid.Row="4"/>
+        <TextBlock Background="LightGray" Grid.Row="6"/>
+        <TextBlock Background="LightGray" Grid.Row="8"/>
+        <TextBlock Background="LightGray" Grid.Row="10"/>
+        <!--Hierboven zie je textbocken, dit heb ik gemaakt om de kleuren om en om te weergeven.-->
+
+
+        <RibbonCheckBox Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20,20,20,20"/>
+        <RibbonCheckBox Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20,20,20,20"/>
+        <RibbonCheckBox Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20,20,20,20"/>
+        <RibbonCheckBox Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20,20,20,20"/>
+        <RibbonCheckBox Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20,20,20,20"/>
+        <RibbonCheckBox Grid.Row="6" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20,20,20,20"/>
+        <RibbonCheckBox Grid.Row="7" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20,20,20,20"/>
+        <RibbonCheckBox Grid.Row="8" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20,20,20,20"/>
+        <RibbonCheckBox Grid.Row="9" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20,20,20,20"/>
+        <RibbonCheckBox Grid.Row="10" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20,20,20,20"/>
+        <!--Hier boven zie je alle vinkjes om de taken mee als voltooid te markeren.-->
+
+        <Image Width="200" Height="75" Grid.Row="0"
+        Source="C:\Users\yarni\Desktop\GameInteraction\KLAAR\Project\LogoApp\logoapp.png"/>
+        <!--Dit is het logo die bovenin te zien is-->
+
+
+        <ListBox ItemsSource="{Binding Tasks}" Margin="10,0,40,0" FontSize="42" FontWeight="Bold" BorderThickness="0" Grid.Row="1" Grid.RowSpan="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" Margin="1"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.Style>
+                <Style TargetType="ListBox">
+                    <Setter Property="Background" Value="Transparent"/>
+                </Style>
+            </ListBox.Style>
+        </ListBox>
+        <!--Hierboven zie je de listbox, hierin worden de taken weergeven, dit is zo gemaakt zodat elke taak precies in een grid.row valt!-->
+
+
+        <StackPanel Grid.Row="11">
+
+            <TextBox Text="{Binding NewTask, UpdateSourceTrigger=PropertyChanged}" Height="65" Width="1375" FontSize="40" Background="White" BorderThickness="5" HorizontalAlignment="Left"/>
+
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="11">
+            <Button Content="SUBMIT" FontSize="40" FontWeight="Bold" Click="AddTask_Click" Height="65" Width="176" HorizontalAlignment="Right" Background="White"
+    BorderBrush="Black" BorderThickness="5">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
+        <!--Hierboven zie je hoe de button is geconfigureerd en connectie maakt in de ceesharp code, maar ook hoe ik dit design heb gemaakt.-->
+    </Grid>
+</Window>
